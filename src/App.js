@@ -1,22 +1,25 @@
-import ClassComponent from './Components/ClassComponent';
-import './App.css';
-
-function App() {
-  // let fNAME =" tlili "
-  // function changeName() {
-  //   fNAME="mohamed tlili";
-  // }
-  return (
-    <div >
-     <ClassComponent/>
-     {/* <h1>{fNAME}</h1>
-     <button  onClick={()=>{
-changeName();
-     }}>
-            Change Name
-        </button> */}
-    </div>
-  );
+import React, { Component } from "react";
+import ClassComponet from "./Components/ClassComponent";
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      show: false,
+    };
+  }
+  render() {
+    return (
+      <div>
+        {this.state.show && <ClassComponet />}
+        <button
+          onClick={() => {
+            this.setState({ show: !this.state.show });
+          }}
+        >
+          {" "}
+          show
+        </button>
+      </div>
+    );
+  }
 }
-
-export default App;
